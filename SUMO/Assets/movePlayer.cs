@@ -13,6 +13,8 @@ public class movePlayer : MonoBehaviour
 
     public float jumpForce = 5f;
 
+    public float rotationSpeed = 150f;
+
     private Rigidbody rb;
 
     public void Awake()
@@ -20,31 +22,16 @@ public class movePlayer : MonoBehaviour
         inputAccion = new NIS();
         rb = GetComponent<Rigidbody>();
     }
-    private void OnEnable()
+    private void Start()
     {
-        inputAccion.Player.Enable();
-
-        inputAccion.Player.Move.performed += OnMove;
-        inputAccion.Player.Move.canceled += OnMove;
-
-        inputAccion.Player.Jump.performed += OnJump;
+        GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
     }
-    private void OnDisable()
+    private void OnMove(InputValue context)
     {
+        moveInput = context.Get<Vector2>();
 
-        inputAccion.Player.Move.performed -= OnMove;
-        inputAccion.Player.Move.canceled -= OnMove;
-
-        inputAccion.Player.Jump.performed -= OnJump;
-
-        inputAccion.Player.Disable();
     }
-
-    private void OnMove(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>();
-    }
-    private void OnJump(InputAction.CallbackContext context)
+    private void OnJump(InputValue context)
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
@@ -52,7 +39,14 @@ public class movePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 movement = new Vector3(moveInput.x, 0f, moveInput.y);
-        transform.Translate(movement * speed * Time.deltaTime);
+        // Rotación izquierda / derecha
+        float rotation = moveInput.x * rotationSpeed * Time.deltaTime;
+
+        transform.Rotate(0f, rotation, 0f);
+
+        // Movimiento hacia adelante / atrás
+        Vector3 movement = transform.forward * moveInput.y;
+
+        transform.position += movement * speed * Time.deltaTime;
     }
 }

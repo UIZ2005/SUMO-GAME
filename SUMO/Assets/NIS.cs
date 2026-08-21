@@ -169,7 +169,7 @@ public partial class @NIS: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1fb786c1-a25c-45f5-a8b3-ef51811161d0"",
+                    ""id"": ""0a8eaca0-c139-4da2-b349-95bf8c3209a3"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -191,7 +191,7 @@ public partial class @NIS: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""95a5e5d8-7622-4259-a9c3-da1b14c3b799"",
+                    ""id"": ""830935fc-ddab-483e-b1dc-0620b4e8e0b2"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
