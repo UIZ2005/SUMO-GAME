@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2252068187101053930}
   - component: {fileID: 2068193640692499146}
   - component: {fileID: 633438019988810981}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 6245274102992079260}
   - component: {fileID: 5056115880722320323}
   - component: {fileID: 2958748355351680865}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4190155635475911421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: puntoPiso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 3806795637802170829}
   - component: {fileID: 7748118667818104136}
   - component: {fileID: 2251333488273539034}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CinemachineCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 831337975232430739}
   - component: {fileID: 919404155366575543}
   - component: {fileID: 171521760678794724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: radioAtaque
   m_TagString: Untagged
   m_Icon: {fileID: 0}
