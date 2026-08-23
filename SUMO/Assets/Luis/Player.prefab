@@ -287,7 +287,7 @@ MonoBehaviour:
   radioAtaque: 1
   objetoEmpujable:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   tiempoEsperaEmpuje: 2
   ultimoTiempoEmpuje: 0
   puntoPiso: {fileID: 4190155635475911421}
