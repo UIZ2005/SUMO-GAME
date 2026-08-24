@@ -10,7 +10,7 @@ public class movePlayer : MonoBehaviour
     public float jumpForce = 5f;
     public float rotationSpeed = 150f;
     private Rigidbody rb;
-
+    public GameObject[] players;
 
     // para el empuje
     public float fuerzaEmpuje;
@@ -27,6 +27,7 @@ public class movePlayer : MonoBehaviour
     private bool estaPiso;
 
     private Coroutine powerUpCoroutine;
+    public bool isdead=false;
 
     public void Awake()
     {
@@ -51,6 +52,7 @@ public class movePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isdead) return;
         // Verifica si est� tocando el suelo
         estaPiso = Physics.CheckSphere(puntoPiso.position, groundCheckRadius, piso);
 
@@ -115,4 +117,9 @@ public class movePlayer : MonoBehaviour
 
         powerUpCoroutine = null;
     }
+    public void skinplayer(int jugador)
+    {
+        players[jugador-1].SetActive(true);
+    }
+
 }

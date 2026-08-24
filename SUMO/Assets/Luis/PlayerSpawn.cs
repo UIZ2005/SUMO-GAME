@@ -20,5 +20,6 @@ public class PlayerSpawn : MonoBehaviour
         playerInput.transform.position = SpawnPoints[m_playerCount].transform.position;
 
         m_playerCount++;
+        playerInput.GetComponent<movePlayer>().skinplayer(m_playerCount);
     }
 }
