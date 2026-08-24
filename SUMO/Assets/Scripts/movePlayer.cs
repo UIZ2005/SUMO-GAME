@@ -28,6 +28,10 @@ public class movePlayer : MonoBehaviour
 
     private Coroutine powerUpCoroutine;
     public bool isdead=false;
+    public GameObject canva;
+    public GameObject canvawin;
+    private GameManager manager;
+    public int numplayer;
 
     public void Awake()
     {
@@ -36,6 +40,7 @@ public class movePlayer : MonoBehaviour
     }
     private void Start()
     {
+        manager = FindAnyObjectByType<GameManager>();
         GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
     }
     private void OnMove(InputValue context)
@@ -64,7 +69,10 @@ public class movePlayer : MonoBehaviour
         transform.position += movement * speed * Time.deltaTime;
     }
     /// empuje
-
+    private void OnStart(InputValue context)
+    {
+        manager.start();
+    }
     private void OnPush(InputValue context)
     {
         if (Time.time >= ultimoTiempoEmpuje + tiempoEsperaEmpuje)
@@ -119,6 +127,7 @@ public class movePlayer : MonoBehaviour
     }
     public void skinplayer(int jugador)
     {
+        numplayer = jugador;
         players[jugador-1].SetActive(true);
     }
 

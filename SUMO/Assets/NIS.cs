@@ -118,6 +118,15 @@ public partial class @NIS: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""29c127c9-24a8-4dff-a513-7b13cd544064"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -230,6 +239,28 @@ public partial class @NIS: IInputActionCollection2, IDisposable
                     ""action"": ""Push"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c69d3074-c74f-40d6-b409-387e4eeffdc5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Teclado"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b9d96f4-eccb-445c-8bd2-47394cf2cd90"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Control"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -264,6 +295,7 @@ public partial class @NIS: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
+        m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
     }
 
     ~@NIS()
@@ -347,6 +379,7 @@ public partial class @NIS: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Push;
+    private readonly InputAction m_Player_Start;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -370,6 +403,10 @@ public partial class @NIS: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Push".
         /// </summary>
         public InputAction @Push => m_Wrapper.m_Player_Push;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Start".
+        /// </summary>
+        public InputAction @Start => m_Wrapper.m_Player_Start;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -405,6 +442,9 @@ public partial class @NIS: IInputActionCollection2, IDisposable
             @Push.started += instance.OnPush;
             @Push.performed += instance.OnPush;
             @Push.canceled += instance.OnPush;
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
         }
 
         /// <summary>
@@ -425,6 +465,9 @@ public partial class @NIS: IInputActionCollection2, IDisposable
             @Push.started -= instance.OnPush;
             @Push.performed -= instance.OnPush;
             @Push.canceled -= instance.OnPush;
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
         }
 
         /// <summary>
@@ -512,5 +555,12 @@ public partial class @NIS: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPush(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Start" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStart(InputAction.CallbackContext context);
     }
 }

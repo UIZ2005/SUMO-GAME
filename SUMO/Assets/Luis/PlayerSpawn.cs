@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 public class PlayerSpawn : MonoBehaviour
 {
     public Transform[] SpawnPoints;
-    private int m_playerCount;
+    public int m_playerCount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
