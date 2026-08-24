@@ -25,6 +25,9 @@ public class movePlayer : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask piso;      // layer del piso
     private bool estaPiso;
+
+    private Coroutine powerUpCoroutine;
+
     public void Awake()
     {
         inputAccion = new NIS();
@@ -48,13 +51,13 @@ public class movePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Verifica si está tocando el suelo
+        // Verifica si estï¿½ tocando el suelo
         estaPiso = Physics.CheckSphere(puntoPiso.position, groundCheckRadius, piso);
 
-        // Rotación izquierda / derecha
+        // Rotaciï¿½n izquierda / derecha
         float rotation = moveInput.x * rotationSpeed * Time.deltaTime;
         transform.Rotate(0f, rotation, 0f);
-        // Movimiento hacia adelante / atrás
+        // Movimiento hacia adelante / atrï¿½s
         Vector3 movement = transform.forward * moveInput.y;
         transform.position += movement * speed * Time.deltaTime;
     }
@@ -85,5 +88,31 @@ public class movePlayer : MonoBehaviour
                 otherRb.AddForce(pushDir * fuerzaEmpuje, ForceMode.Impulse);
             }
         }
+    }
+
+    public void ActivarPowerUp(float duracion)
+    {
+        if (powerUpCoroutine != null)
+        {
+            StopCoroutine(powerUpCoroutine);
+
+            fuerzaEmpuje /= 2f;
+            radioAtaque /= 1.5f;
+        }
+
+        powerUpCoroutine = StartCoroutine(PowerUpCoroutine(duracion));
+    }
+
+    private System.Collections.IEnumerator PowerUpCoroutine(float duracion)
+    {
+        fuerzaEmpuje *= 2f;
+        radioAtaque *= 1.5f;
+
+        yield return new WaitForSeconds(duracion);
+
+        fuerzaEmpuje /= 2f;
+        radioAtaque /= 1.5f;
+
+        powerUpCoroutine = null;
     }
 }

@@ -3,16 +3,19 @@ using UnityEngine;
 public class SpawnerBomba : MonoBehaviour
 {
     [SerializeField] GameObject prefabBomba;
+    [SerializeField] GameObject prefabPowerUp;
+
     [SerializeField] float tiempoEntreBombas = 7f;
     [SerializeField] float radioRespawn = 10f;
 
     private void Start()
     {
-        InvokeRepeating(nameof(CrearBomba), 0f, tiempoEntreBombas);
+        InvokeRepeating(nameof(CrearObjeto), 0f, tiempoEntreBombas);
     }
 
-    private void CrearBomba()
+    private void CrearObjeto()
     {
+        // Posición aleatoria dentro del radio
         Vector2 posicionAleatoria = Random.insideUnitCircle * radioRespawn;
 
         Vector3 posicion = new Vector3(
@@ -21,7 +24,18 @@ public class SpawnerBomba : MonoBehaviour
             transform.position.z + posicionAleatoria.y
         );
 
-        Instantiate(prefabBomba, posicion, Quaternion.identity);
+        // Número aleatorio entre 0 y 1
+        float probabilidad = Random.value;
+
+        // 65% bomba, 35% Power Up
+        if (probabilidad <= 0.65f)
+        {
+            Instantiate(prefabBomba, posicion, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(prefabPowerUp, posicion, Quaternion.identity);
+        }
     }
 
     private void OnDrawGizmos()

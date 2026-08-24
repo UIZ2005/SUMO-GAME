@@ -412,7 +412,7 @@ Transform:
   m_GameObject: {fileID: 111199479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.72791, y: 2.7, z: 0.03}
+  m_LocalPosition: {x: 3.48, y: 2.7, z: 0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -431,8 +431,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerBomba
   prefabBomba: {fileID: 6011394976962188436, guid: 586283db1c715134798c6a81e698e797, type: 3}
+  prefabPowerUp: {fileID: 1155592962813054399, guid: d89e32f594e25a44d9ce2fbc3022c889, type: 3}
   tiempoEntreBombas: 7
-  radioRespawn: 3
+  radioRespawn: 2.6
 --- !u!1001 &123662384
 PrefabInstance:
   m_ObjectHideFlags: 0
