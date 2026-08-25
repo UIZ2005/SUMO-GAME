@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 795092016531763026}
   serializedVersion: 2
   m_LocalRotation: {x: -0.07910613, y: 0.005049997, z: -0.002637084, w: -0.99685}
-  m_LocalPosition: {x: -0.039999485, y: 0.96000195, z: -3.1527302}
+  m_LocalPosition: {x: -0.04000004, y: 0.9600001, z: -3.1527307}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -300,12 +300,14 @@ MonoBehaviour:
     m_Bits: 192
   tiempoEsperaEmpuje: 1
   ultimoTiempoEmpuje: 0
+  prefabParticulasEmpuje: {fileID: 2132401224620075655, guid: 0c2ccd4de36fd23459f77da3b6669a8e, type: 3}
   puntoPiso: {fileID: 4190155635475911421}
   groundCheckRadius: 0.2
   piso:
     serializedVersion: 2
     m_Bits: 256
-  isdead: 1
+  estaPiso: 0
+  isdead: 0
   canva: {fileID: 2302815544087484434}
   canvawin: {fileID: 0}
   numplayer: 0
@@ -385,10 +387,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.3777605
+  m_Radius: 0.5860967
+  m_Height: 1.3116425
   m_Direction: 1
-  m_Center: {x: 0, y: -0.31111965, z: 0}
+  m_Center: {x: -0.05503595, y: -0.34943435, z: -0.0993917}
 --- !u!1 &2302815544087484434
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,8 +690,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RenderRadioAtaque
   segmentos: 50
-  alturaSuelo: 4.45
-  colorDisponible: {r: 0.2, g: 0.5, b: 1, a: 0.5}
+  offsetAltura: 0.005
+  colorSeleccionado: 0
+  colorRojo: {r: 1, g: 0.2, b: 0.2, a: 0.3254902}
+  colorRosa: {r: 1, g: 0.4, b: 0.7, a: 0.34901962}
+  colorVerde: {r: 0.3, g: 1, b: 0.3, a: 0.36862746}
+  colorAzul: {r: 0.2, g: 0.5, b: 1, a: 0.5}
   colorEnCooldown: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
 --- !u!1 &8085284202256180464
 GameObject:

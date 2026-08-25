@@ -19,12 +19,14 @@ public class movePlayer : MonoBehaviour
     public float tiempoEsperaEmpuje;
     public float ultimoTiempoEmpuje;
 
+    public GameObject prefabParticulasEmpuje;
+
 
     // para el salto
     public Transform puntoPiso;      
     public float groundCheckRadius = 0.2f;
     public LayerMask piso;      // layer del piso
-    private bool estaPiso;
+    public bool estaPiso;
 
     private Coroutine powerUpCoroutine;
     public bool isdead=false;
@@ -85,7 +87,7 @@ public class movePlayer : MonoBehaviour
     }
     private void DoPush()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position + transform.forward * 0.5f, radioAtaque, objetoEmpujable);
+        Collider[] hits = Physics.OverlapSphere(transform.position, radioAtaque, objetoEmpujable);
         foreach (Collider hit in hits)
         {
             if (hit.gameObject == gameObject) continue;
@@ -97,6 +99,12 @@ public class movePlayer : MonoBehaviour
                 pushDir.y = 0;
                 otherRb.AddForce(pushDir * fuerzaEmpuje, ForceMode.Impulse);
             }
+        }
+
+        // Activar explosión de partículas desde el centro del jugador
+        if (prefabParticulasEmpuje != null)
+        {
+            Instantiate(prefabParticulasEmpuje, transform.position, Quaternion.identity);
         }
     }
 
