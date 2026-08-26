@@ -115,7 +115,7 @@ public class movePlayer : MonoBehaviour
         {
             StopCoroutine(powerUpCoroutine);
 
-            fuerzaEmpuje /= 2f;
+            fuerzaEmpuje /= 1.7f;
             radioAtaque /= 1.5f;
         }
 
