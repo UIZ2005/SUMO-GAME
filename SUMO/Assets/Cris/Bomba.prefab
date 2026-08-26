@@ -4944,9 +4944,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bomba
   modelo: {fileID: 8597574975155727766}
   particulasExplosion: {fileID: 740586952456813519}
-  fuerzaExplosion: 15
-  tiempoParaExplotar: 5
-  radioExplosion: 0.5
+  fuerzaExplosion: 25
+  tiempoParaExplotar: 2.5
+  radioExplosion: 0.6
   capasExplosion:
     serializedVersion: 2
     m_Bits: 128

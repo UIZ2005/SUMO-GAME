@@ -18,7 +18,7 @@ public class movePlayer : MonoBehaviour
     public LayerMask objetoEmpujable;
     public float tiempoEsperaEmpuje;
     public float ultimoTiempoEmpuje;
-
+    private audiomanager audiomanager;
     public GameObject prefabParticulasEmpuje;
 
 
@@ -41,6 +41,7 @@ public class movePlayer : MonoBehaviour
     }
     private void Start()
     {
+        audiomanager = FindAnyObjectByType<audiomanager>();
         manager = FindAnyObjectByType<GameManager>();
         GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
     }
@@ -86,6 +87,7 @@ public class movePlayer : MonoBehaviour
     }
     private void DoPush()
     {
+        audiomanager.seleccionAudio(1);
         Collider[] hits = Physics.OverlapSphere(transform.position, radioAtaque, objetoEmpujable);
         foreach (Collider hit in hits)
         {

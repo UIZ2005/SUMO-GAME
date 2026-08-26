@@ -10,11 +10,17 @@ public class Bomba : MonoBehaviour
 
     [SerializeField] float radioExplosion;
     [SerializeField] LayerMask capasExplosion;
+    private audiomanager audiomanager;
+
+    public void Start()
+    {
+        audiomanager = FindAnyObjectByType<audiomanager>();
+    }
 
     public IEnumerator Explosion()
     {
         yield return new WaitForSeconds(tiempoParaExplotar);
-
+        audiomanager.seleccionAudio(2);
         modelo.SetActive(false);
         particulasExplosion.SetActive(true);
 
@@ -39,7 +45,6 @@ public class Bomba : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2f);
-
         Destroy(gameObject);
     }
 

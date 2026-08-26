@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI texto;
     public int playersdeath=0;
     private GameObject[] players;
+    private audiomanager audiomanager;
     void Start()
     {
+        audiomanager = FindAnyObjectByType<audiomanager>();
         playerSpawn = gameObject.GetComponent<PlayerSpawn>();
     }
 
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
                     playerwin = player.GetComponent<movePlayer>().numplayer.ToString();
                 }
             }
+            audiomanager.seleccionAudio(0);
             StartCoroutine(winner(playerwin));
            
         }
