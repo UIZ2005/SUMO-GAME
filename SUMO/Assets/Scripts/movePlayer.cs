@@ -31,7 +31,6 @@ public class movePlayer : MonoBehaviour
     private Coroutine powerUpCoroutine;
     public bool isdead=false;
     public GameObject canva;
-    public GameObject canvawin;
     private GameManager manager;
     public int numplayer;
 
