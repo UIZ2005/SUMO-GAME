@@ -307,7 +307,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   estaPiso: 0
-  isdead: 0
+  isdead: 1
   canva: {fileID: 2302815544087484434}
   canvawin: {fileID: 0}
   numplayer: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
   offsetAltura: 0.005
   colorSeleccionado: 0
   colorRojo: {r: 1, g: 0.2, b: 0.2, a: 0.3254902}
-  colorRosa: {r: 1, g: 0.4, b: 0.7, a: 0.34901962}
+  colorRosa: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   colorVerde: {r: 0.3, g: 1, b: 0.3, a: 0.36862746}
   colorAzul: {r: 0.2, g: 0.5, b: 1, a: 0.5}
   colorEnCooldown: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
